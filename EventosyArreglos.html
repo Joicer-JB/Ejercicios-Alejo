@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ejercicio Arrays</title>
+</head>
+<body>
+    <label for="primerInput">Introduce los datos del primer arreglo</label><br/>
+    <input type="text" name="" id="primerInput" placeholder="Ingresa Datos">
+    <button onclick="guardarPrimerArreglo()">Guardar</button>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <label for="segundoInput">Introduce los datos del segundo arreglo</label><br/>
+    <input type="text" name="" id="segundoInput" placeholder="Ingresa Datos" disabled>
+    <button onclick="guardarSegundoArreglo()" id="guardarSegundoBtn" disabled>Guardar</button>
+
+    <br/>
+    <br/>
+
+    <button onclick="mostrarValores()">Mostrar Valores</button>
+
+    <div id="volverIngresar" style="display: none;">
+        <button onclick="volverAIngresar()">Volver a Ingresar Datos</button>
+    </div>
+
+
+    <script>
+        const primerArreglo = [];
+        const segundoArreglo = [];
+
+        function guardarPrimerArreglo() {
+            const primerInput = document.getElementById('primerInput');
+            const valor = primerInput.value;
+            
+            if (valor.trim() !== "") {
+                primerArreglo.push(valor);
+                primerInput.value = "";
+                console.log("Elemento agregado al primer arreglo:", valor);
+
+                primerInput.disabled = true;
+                const guardarPrimerBtn = document.querySelector('button[onclick="guardarPrimerArreglo()"]');
+                guardarPrimerBtn.disabled = true;
+
+                const segundoInput = document.getElementById('segundoInput');
+                const guardarSegundoBtn = document.getElementById('guardarSegundoBtn');
+                segundoInput.disabled = false;
+                guardarSegundoBtn.disabled = false;
+            }
+        }
+
+        function guardarSegundoArreglo() {
+            const segundoInput = document.getElementById('segundoInput');
+            const valor = segundoInput.value;
+            
+            if (valor.trim() !== "") {
+                segundoArreglo.push(valor);
+                segundoInput.value = "";
+                console.log("Elemento agregado al segundo arreglo:", valor);
+            }
+        }
+
+
+
+        function mostrarValores() {
+            document.write(`Primer arreglo: ${primerArreglo} <br> Segundo arreglo: ${segundoArreglo}`);
+
+        }
+    </script>
+</body>
+</html>

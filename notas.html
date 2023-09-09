@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <Script>
+
+        let notas = {
+            nombreAlumno: "",
+            materias: {
+              Ingles: [],
+              Programacion: [],
+              HTML: [],
+            },
+          };
+          notas.nombreAlumno = prompt("Ingresa el nombre del alumno:");
+          for (let mat in notas.materias) {
+            const nota = parseFloat(prompt("Ingrese la nota definitiva de " + mat));
+            notas.materias[mat] = nota;
+          }
+          let totalNotas = 0;
+          let numMaterias = 0;
+    
+          for (let mat in notas.materias) {
+            totalNotas += notas.materias[mat];
+            numMaterias++;
+          }
+    
+          const promedio = totalNotas / numMaterias;
+    
+          document.write("Nombre del alumno: " + notas.nombreAlumno + "<br>");
+    
+          for (let mat in notas.materias) {
+            document.write(mat + ": " + notas.materias[mat] + "<br>");
+          }
+    
+          document.write("Promedio: " + promedio.toFixed(1));
+    </Script>
+
+
+</body>
+
+</html>
